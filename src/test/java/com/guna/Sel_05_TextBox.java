@@ -80,6 +80,34 @@ public class Sel_05_TextBox extends BaseClass {
 		String actSpinTxt = spinTxtEle.getAttribute("value");
 		System.out.println(actSpinTxt);
 	}
+	
+	private void randomNumSlider() throws InterruptedException {
+		int oldXAxis = driver.findElement(By.xpath("//*[@id='j_idt106:j_idt120']/span")).getLocation().getX();
+		driver.findElement(By.id("j_idt106:slider")).sendKeys("25");
+		Thread.sleep(3000);
+		int newXAxis = driver.findElement(By.xpath("//*[@id='j_idt106:j_idt120']/span")).getLocation().getX();
+		System.out.println("oldXAxis->"+oldXAxis+" newXAxis->"+newXAxis);
+		if(oldXAxis!=newXAxis)
+			System.out.println("Slider has moved");
+		else
+			System.out.println("Slider has not moved");
+	}
+	
+	private void confirmKeyBoard() throws InterruptedException {
+		driver.findElement(By.id("j_idt106:j_idt122")).click();
+		WebElement keyboardEle = driver.findElement(By.xpath("//*[@class='ui-widget ui-widget-content ui-corner-all ui-shadow keypad-popup ui-input-overlay']"));
+		Thread.sleep(3000);
+		boolean keyboardCheck = keyboardEle.isEnabled();
+		if(keyboardCheck==true)
+			System.out.println("KeyBoard is Displayed");
+		else
+			System.out.println("KeyBoard is Not Displayed");
+	}
+	
+	private void customToolbar() {
+		driver.findElement(By.xpath("(//*[@class='ql-bold'])[2]")).click();
+		driver.findElement(By.xpath("(//*[@class='ql-editor ql-blank'])[2]")).sendKeys("Guna");
+	}
 
 	public static void main(String[] args) throws InterruptedException {
 		BaseClass bcl = new BaseClass();
@@ -126,6 +154,14 @@ public class Sel_05_TextBox extends BaseClass {
 		//Type number and spin to confirm value changed
 		sel.spin();
 		
+		//Type random number (1-100) and confirm slider moves correctly
+		sel.randomNumSlider();
+		
+		//Click and Confirm Keyboard appears
+		sel.confirmKeyBoard();
+		
+		//Custom Toolbar
+		sel.customToolbar();
 	}
 
 }
