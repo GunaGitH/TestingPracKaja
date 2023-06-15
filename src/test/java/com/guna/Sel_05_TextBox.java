@@ -64,7 +64,8 @@ public class Sel_05_TextBox extends BaseClass {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		WebElement dOBEle = driver.findElement(By.id("j_idt106:j_idt116_input"));
 		js.executeScript("arguments[0].setAttribute('value','"+dOB+"')", dOBEle);
-		Object actDOB = js.executeScript("return arguments[0].getAttribute('value')", dOBEle);
+		String actDOB = dOBEle.getAttribute("value");
+		//Object actDOB = js.executeScript("return arguments[0].getAttribute('value')", dOBEle);
 		String expDOB = dOB;
 		boolean dOBVerify = actDOB.equals(expDOB);
 		if(dOBVerify==true)
