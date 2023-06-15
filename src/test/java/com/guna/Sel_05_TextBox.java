@@ -73,7 +73,7 @@ public class Sel_05_TextBox extends BaseClass {
 			System.out.println("DOB is not equal");
 	}
 	
-	private void spin() {
+	public void spin() {
 		WebElement spinTxtEle = driver.findElement(By.id("j_idt106:j_idt118_input"));
 		spinTxtEle.sendKeys("5");
 		driver.findElement(By.xpath("//*[@id='j_idt106:j_idt118']/a[1]")).click();
@@ -146,7 +146,7 @@ public class Sel_05_TextBox extends BaseClass {
 		sel.labelPosition();
 		
 		//Type your name and choose the third option
-		sel.chooseThirdOpt();
+		//sel.chooseThirdOpt();
 		
 		//Type your DOB (mm/dd/yyyy) and confirm date chosen
 		sel.dateOfBirth();

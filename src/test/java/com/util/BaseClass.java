@@ -13,7 +13,7 @@ public class BaseClass {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		driver.get(uRL);
 	}
 }
